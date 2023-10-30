@@ -4,5 +4,3 @@
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
-motion_path = "res://demo_vmd/Pronama_motion/melt.vmd"
-model_path = "res://demo_vrms/4490707391186690073.vrm"

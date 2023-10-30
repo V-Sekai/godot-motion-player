@@ -1,8 +1,8 @@
 extends Spatial
 
 export(String, FILE) var import_vrm_path = "res://addons/vrm/import_vrm.gd"
-export(String, FILE) var motion_path
-export(String, FILE) var model_path
+export(String, FILE) var motion_path = "res://miku_vrm_motion/art/demo_vmd/anim_pronama/melt.vmd"
+export(String, FILE) var model_path = "res://miku_vrm_motion/art/demo_vrms/4490707391186690073.vrm"
 
 func _ready():
 	var vmd_player: VMDPlayerBake
@@ -10,10 +10,12 @@ func _ready():
 	var VRMImport = load(import_vrm_path)
 	var model_instance: Spatial
 	if model_path.begins_with("res://"):
-		model_instance = load(model_path).instance()
-	else:
+		var new_model_instance = load(model_path)
+		if new_model_instance != null:
+			model_instance = new_model_instance.instance()
+	if model_instance == null:
 		var vrm_loader = load("res://addons/vrm/vrm_loader.gd").new()
-		model_instance = vrm_loader.import_scene(model_path, 1, 1000)
+		model_instance = vrm_loader.import_scene(model_path, 1, 1000, false)
 	model_instance.rotate_y(deg2rad(180))
 	animator = VRMAnimatorBake.new()
 	vmd_player = VMDPlayerBake.new()
@@ -31,7 +33,7 @@ func _ready():
 			new_animation_player.add_animation(key_i, anims[key_i])
 		var scene : PackedScene = PackedScene.new()
 		scene.pack(model_instance)
-		ResourceSaver.save("res://.import/%s_%s.scn" % [model_path.get_file().get_basename(), path.get_file().get_basename()], 
+		ResourceSaver.save("res://%s_%s.scn" % [model_path.get_file().get_basename(), path.get_file().get_basename()], 
 			scene, ResourceSaver.FLAG_COMPRESS)
 
 
