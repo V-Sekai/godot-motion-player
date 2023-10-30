@@ -104,9 +104,10 @@ func set_blend_shape_value(blend_shape_name: String, value: float):
 	var new_bs_name = ""
 	if blend_shape_name in MMD_TO_VRM_MorphBake:
 		blend_shape_name = MMD_TO_VRM_MorphBake[blend_shape_name]
-		var group = meta.blend_shape_groups[blend_shape_name]
-		for bind in group.binds:
-			if bind.mesh < mesh_idx_to_mesh.size():
-				var weight = 0.99999 * float(bind.weight) / 100.0
-				var mesh := mesh_idx_to_mesh[bind.mesh] as MeshInstance
-				mesh.set("blend_shapes/Morph_%d" % [bind.index], value * weight)
+		if meta.blend_shape_groups.has(blend_shape_name):
+			var group = meta.blend_shape_groups[blend_shape_name]
+			for bind in group.binds:
+				if bind.mesh < mesh_idx_to_mesh.size():
+					var weight = 0.99999 * float(bind.weight) / 100.0
+					var mesh := mesh_idx_to_mesh[bind.mesh] as MeshInstance
+					mesh.set("blend_shapes/Morph_%d" % [bind.index], value * weight)

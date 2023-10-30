@@ -166,6 +166,8 @@ func save_motion(basename):
 		if not key in animator.MMD_TO_VRM_MorphBake:
 			continue
 		var blend_shape_name = animator.MMD_TO_VRM_MorphBake[key]
+		if not animator.vrm.vrm_meta.blend_shape_groups.has(blend_shape_name):
+			continue
 		var group = animator.vrm.vrm_meta.blend_shape_groups[blend_shape_name]
 		for bind in group.binds:
 			if bind.mesh >= animator.mesh_idx_to_mesh.size():
@@ -214,6 +216,8 @@ func save_motion(basename):
 			if not key in animator.MMD_TO_VRM_MorphBake:
 				continue
 			var blend_shape_name = animator.MMD_TO_VRM_MorphBake[key]
+			if not animator.vrm.vrm_meta.blend_shape_groups.has(blend_shape_name):
+				continue
 			var group = animator.vrm.vrm_meta.blend_shape_groups[blend_shape_name]
 			for bind in group.binds:			
 				if bind.mesh >= animator.mesh_idx_to_mesh.size():
