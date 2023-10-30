@@ -1,7 +1,7 @@
 extends Control
 
-var model_path: String = "res://demo_vrms/4490707391186690073.vrm"
-var motion_paths: Array = ["res://demo_vmd/anim_pronama/melt.vmd"]
+var model_path: String = "res://miku_vrm_motion/art/demo_vrms/4490707391186690073.vrm"
+var motion_paths: Array = ["res://miku_vrm_motion/art/demo_vmd/anim_pronama//melt.vmd"]
 var vmd_player: VMDPlayer
 var animator: VRMAnimator
 var max_frame: int

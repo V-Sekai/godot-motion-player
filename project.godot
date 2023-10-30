@@ -117,7 +117,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MikuVRMMotion"
-run/main_scene="res://Scene.tscn"
+run/main_scene="res://miku_vrm_motion/scenes/Scene.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/4490707391186690073.vrm-906cfef315dfbd283a3bfe50a29a6a8e.scn"
+path="res://.import/4490707391186690073.vrm-07fb893c6b211bbc092c9bab4af2c69a.scn"
 
 [deps]
 
-source_file="res://demo_vrms/4490707391186690073.vrm"
-dest_files=[ "res://.import/4490707391186690073.vrm-906cfef315dfbd283a3bfe50a29a6a8e.scn" ]
+source_file="res://miku_vrm_motion/art/demo_vrms/4490707391186690073.vrm"
+dest_files=[ "res://.import/4490707391186690073.vrm-07fb893c6b211bbc092c9bab4af2c69a.scn" ]
 
 [params]
 

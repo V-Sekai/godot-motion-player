@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/studio_small_02_4k.exr-47309d77ad110e1ae1c2ffa77f81e324.stex"
+path="res://.import/studio_small_02_4k.exr-21b3db69d9713c23f755efb7ed761302.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demo_env/studio_small_02_4k.exr"
-dest_files=[ "res://.import/studio_small_02_4k.exr-47309d77ad110e1ae1c2ffa77f81e324.stex" ]
+source_file="res://miku_vrm_motion/art/studio_small_02_4k.exr"
+dest_files=[ "res://.import/studio_small_02_4k.exr-21b3db69d9713c23f755efb7ed761302.stex" ]
 
 [params]
 
