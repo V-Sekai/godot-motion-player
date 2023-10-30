@@ -23,7 +23,7 @@ func _ready():
 	vrm = get_child(0)
 	skeleton = vrm.get_node(vrm.vrm_skeleton) as Skeleton
 	var rest_bones : Dictionary
-	_fetch_reset_animation(skeleton, rest_bones)	
+	_fetch_reset_animation(skeleton, rest_bones)
 	_fix_skeleton(skeleton, rest_bones)
 	for child in skeleton.get_children():
 		if child is MeshInstance:
@@ -38,12 +38,12 @@ func find_humanoid_bone(bone_name: String):
 
 
 func _insert_bone(p_skeleton : Skeleton, bone_name : String, rot : Basis, loc : Vector3, r_rest_bones : Dictionary) -> void:
-	var rest_bone : Dictionary = {}	
+	var rest_bone : Dictionary = {}
 	rest_bone["rest_local"] = Transform()
 	rest_bone["children"] = PoolIntArray()
 	var rot_basis : Basis = rot
 	rot_basis = rot_basis.scaled(scale)
-	rest_bone["rest_delta"] = rot 
+	rest_bone["rest_delta"] = rot
 	rest_bone["loc"] = loc
 	# Store the animation into the RestBone.
 	var new_path : String = str(skeleton.get_owner().get_path_to(skeleton)) + ":" + bone_name
@@ -58,7 +58,7 @@ func _fetch_reset_animation(p_skel : Skeleton, r_rest_bones : Dictionary) -> voi
 		return
 	for bone in p_skel.get_bone_count():
 		_insert_bone(p_skel, p_skel.get_bone_name(bone), Basis(), Vector3(), r_rest_bones)
-		
+
 	var right_arm_bone = find_humanoid_bone("rightUpperArm")
 	var left_arm_bone = find_humanoid_bone("leftUpperArm")
 	_insert_bone(p_skel, p_skel.get_bone_name(right_arm_bone), Basis(Vector3.FORWARD, deg2rad(35)), Vector3(), r_rest_bones)
@@ -100,10 +100,10 @@ func set_blend_shape_value(blend_shape_name: String, value: float):
 	var new_bs_name = ""
 	if blend_shape_name in MMD_TO_VRM_MORPH:
 		blend_shape_name = MMD_TO_VRM_MORPH[blend_shape_name]
-		var group = meta.blend_shape_groups[blend_shape_name]
-		for bind in group.binds:
-			if bind.mesh < mesh_idx_to_mesh.size():
-				var weight = 0.99999 * float(bind.weight) / 100.0
-				var mesh := mesh_idx_to_mesh[bind.mesh] as MeshInstance
-				mesh.set("blend_shapes/morph_%d" % [bind.index], value * weight)
-		
+		if meta.blend_shape_groups.has(blend_shape_name):
+			var group = meta.blend_shape_groups[blend_shape_name]
+			for bind in group.binds:
+				if bind != null and bind.mesh < mesh_idx_to_mesh.size():
+					var weight = 0.99999 * float(bind.weight) / 100.0
+					var mesh := mesh_idx_to_mesh[bind.mesh] as MeshInstance
+					mesh.set("blend_shapes/morph_%d" % [bind.index], value * weight)
