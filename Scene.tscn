@@ -76,17 +76,14 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 26.8701
-margin_top = -116.339
-margin_right = 198.87
-margin_bottom = -34.3389
+margin_top = -158.339
+margin_right = 324.87
+margin_bottom = -9.33899
 text = "Controls:
 W/A = Forwards/Backwards
 E/Q = Up/Down
 Mouse = Orbit
 H = Toggle UI"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="Control"]
 anchor_left = 1.0
@@ -144,9 +141,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
-margin_top = -41.0
+margin_top = -65.0
 margin_right = -10.0
-margin_bottom = 10.0
+margin_bottom = -9.0
 text = "V-Sekai
 Project Heartbeat Laboratorio"
 align = 2
